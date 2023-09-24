@@ -7,8 +7,6 @@ import CustomRoute from './component/CustomRoute/CustomRoute.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-     {/* <CustomRoute/>
-      */}
       <App/>
   </BrowserRouter>
 

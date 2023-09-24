@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { MathComponent } from "mathjax-react";
-import LandingPage from "../LandingPage/LandingPage";
 
-function TestPage(props){
+function TestPage(){
     const [result, setResult] = useState([]);
 
     function downloadQuestion(){
@@ -19,8 +18,6 @@ function TestPage(props){
     downloadQuestion();
     
   }, [])
-  // console.log("result",props);
-
   
   return (
     <>

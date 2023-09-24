@@ -1,6 +1,5 @@
 import React, { useState,  } from 'react';
 import { Link } from 'react-router-dom';
-import TestPage from '../TestPage/TestPage';
 import './LandingPage.css'
 
 const questions = [
@@ -17,7 +16,7 @@ const questions = [
 function LandingPage() {
   const [inputText, setInputText] = useState("");
   const [checkedItems, setCheckedItems] = useState({});
-  // const [nextPage, setNextPage] = useState(false)
+  const [nextPage,setNextPage] = useState(false)
 
   const handleCheckboxChange = (text) => {
     setCheckedItems((prevCheckedItems) => ({
@@ -30,24 +29,19 @@ function LandingPage() {
     setInputText(e.target.value);
   }; 
 
-  const handleSubmit = () => {
-    let questionArray =  Object.keys(checkedItems);
-    console.log(questionArray);
-    // setNextPage(true)
-  };
+  function perQies(){
+    checkedItems.map((e) => {
+      Object.keys(checkedItems).shift 
+      console.log(Object.keys(checkedItems).shift());
 
-  // console.log(checkedItems);
-
-  // const newArr = {
-  //   name: "sachin"
-  // }
-
+    })
+  }
 
   return (
     <div className='main-container'>
         <div className='name'>
             <h2>UserName:</h2> 
-            <input type="text" onChange={handleChange} value={inputText} placeholder='Write your name...'/>
+            <input type="text" onChange={handleChange} value={inputText} placeholder='Enter your name...'/>
         </div>
         
         <h2>Select your test based on below topics</h2>
@@ -64,10 +58,7 @@ function LandingPage() {
         ))}
         </ul>
 
-        <Link to="/checkedItems"> <button type="submit" onClick={handleSubmit}>Start Test </button></Link>
-
-      {/* <NextQues/>  */}
-
+        <Link to="/checkedItems"> <button type="submit" >Start Test </button></Link>
     </div>
   );
 }

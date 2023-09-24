@@ -6,7 +6,6 @@ function CustomRoute(){
     return(
         <Routes>
             <Route path="/" element={<LandingPage/>}/>
-
             <Route path="/checkedItems" element={<TestPage/>}/>
         </Routes>
     )
