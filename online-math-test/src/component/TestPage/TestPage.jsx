@@ -28,6 +28,8 @@ function TestPage(){
           </li>
         ))}
       </ul>
+
+      <button>Next Question</button>
     </>
   )
 }
