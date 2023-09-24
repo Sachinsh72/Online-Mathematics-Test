@@ -1,4 +1,7 @@
 import React, { useState,  } from 'react';
+import { Link } from 'react-router-dom';
+import TestPage from '../TestPage/TestPage';
+import './LandingPage.css'
 
 const questions = [
   { id: 0, text: "AreaUnderTheCurve_21", isCorrect: false },
@@ -12,8 +15,9 @@ const questions = [
 ];
 
 function LandingPage() {
-    const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState("");
   const [checkedItems, setCheckedItems] = useState({});
+  // const [nextPage, setNextPage] = useState(false)
 
   const handleCheckboxChange = (text) => {
     setCheckedItems((prevCheckedItems) => ({
@@ -24,24 +28,29 @@ function LandingPage() {
 
   const handleChange = (e) => {
     setInputText(e.target.value);
-  };
+  }; 
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = () => {
     let questionArray =  Object.keys(checkedItems);
     console.log(questionArray);
-    
-    
+    // setNextPage(true)
   };
-  console.log(checkedItems);
+
+  // console.log(checkedItems);
+
+  // const newArr = {
+  //   name: "sachin"
+  // }
+
 
   return (
-    <>
-        <div>
-            <h2>Name:</h2> 
-            <input type="text" onChange={handleChange} value={inputText} />
+    <div className='main-container'>
+        <div className='name'>
+            <h2>UserName:</h2> 
+            <input type="text" onChange={handleChange} value={inputText} placeholder='Write your name...'/>
         </div>
         
+        <h2>Select your test based on below topics</h2>
         <ul>
         {questions.map((option) => (
             <li key={option.id}>
@@ -50,15 +59,17 @@ function LandingPage() {
                   checked={checkedItems[option.text] || false}
                   onChange={() => handleCheckboxChange(option.text)}
               />
-              {option.text} <br />
-            
+              <p>{option.text}  </p> <br />
             </li>
         ))}
         </ul>
-        
-        <button type="submit" onClick={handleSubmit}>Start Text </button>
-    </>
+
+        <Link to="/checkedItems"> <button type="submit" onClick={handleSubmit}>Start Test </button></Link>
+
+      {/* <NextQues/>  */}
+
+    </div>
   );
 }
 
-export default LandingPage;
+export  default LandingPage
